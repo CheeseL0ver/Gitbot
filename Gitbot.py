@@ -12,9 +12,9 @@ webhooks = []
 # Handle the POST from Bitbucket
 @app.route('/', methods=['POST'])
 def webhook():
-  print(request.get_json())
+  #print(request.get_json())
   json = request.get_json()
-  #print(json)
+  print(json)
 
   webhooks = []
   generateMessages(json)
@@ -33,16 +33,11 @@ def getPhotoURL():
 def sendMessages():
     for webhook in webhooks:
         print(webhook)
-        #print(webhook[0] + '\n' + webhook[1])
-        #req.post(webhook[0],data=dumps(webhook[1]))
         req.post(webhook[0],json=(webhook[1]))
 
 def generateMessages(json):
-    #commitMessage = json['push']['changes'][0]['new']['target']['message'].strip('\n')
-    #commitAuthor = json['actor']['display_name']
-    #repoName = json['repository']['name']
-    #commitLink = json['push']['changes'][0]['new']['target']['links']['html']['href']
-    #photoUrl = getPhotoURL()
+    photoUrl = getPhotoURL()
+    commit = json['commits'][-1]
     commitMessage = json['commits'][-1]['message'].strip('\n')
     commitAuthor = json['commits'][-1]['author']['name']
     repoName = json['repository']['name']

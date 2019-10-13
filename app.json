@@ -2,7 +2,7 @@
   "name": "Gitbot",
   "description": "A Python based alert bot for source code pushes.",
   "repository": "https://github.com/CheeseL0ver/Gitbot",
-  "keywords": ["python", "requests", "heroku"],
+  "keywords": ["python", "requests", "heroku", "Github"],
   "env": {
     "DISCORD_CHANNEL_WEBHOOK": {
       "description": "This is the webhook URL for the bot you created inside of your Discord channel.",

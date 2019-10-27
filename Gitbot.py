@@ -5,8 +5,8 @@ from json import loads
 from json import load
 
 app = Flask(__name__)
-GOOGLE_CHAT_WEBHOOK = os.getenv('GOOGLE_CHAT_WEBHOOK')
-DISCORD_CHANNEL_WEBHOOK = os.getenv('DISCORD_CHANNEL_WEBHOOK')
+GOOGLE_CHAT_WEBHOOK = os.getenv('GOOGLE_CHAT_WEBHOOK') or None
+DISCORD_CHANNEL_WEBHOOK = os.getenv('DISCORD_CHANNEL_WEBHOOK') or None
 webhooks = []
 
 # Handle the POST from Bitbucket
